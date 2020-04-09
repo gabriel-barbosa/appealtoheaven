@@ -24,9 +24,13 @@ $has_calculated_shipping  = ! empty( $has_calculated_shipping );
 $show_shipping_calculator = ! empty( $show_shipping_calculator );
 $calculator_text          = '';
 ?>
-<tr class="woocommerce-shipping-totals shipping">
+<tr class="woocommerce-shipping-totals shipping shipping-title">
 	<th><?php echo wp_kses_post( $package_name ); ?></th>
-	<td data-title="<?php echo esc_attr( $package_name ); ?>">
+	<td></td>
+</tr>
+
+<tr class="woocommerce-shipping-totals shipping shipping-methods">
+	<td data-title="<?php echo esc_attr( $package_name ); ?>" colspan="2">
 		<?php if ( $available_methods ) : ?>
 			<ul id="shipping_method" class="woocommerce-shipping-methods">
 				<?php foreach ( $available_methods as $method ) : ?>
@@ -80,4 +84,6 @@ $calculator_text          = '';
 			<?php woocommerce_shipping_calculator( $calculator_text ); ?>
 		<?php endif; ?>
 	</td>
+
+	<td></td>
 </tr>
