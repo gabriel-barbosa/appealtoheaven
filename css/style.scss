@@ -45,10 +45,6 @@ html {
 body {
 	font-family: 'Arial Narrow', sans-serif;
 	color: $purple;
-
-	&.home {
-		overflow: hidden;
-	}
 }
 /* clear */
 .clear:before,

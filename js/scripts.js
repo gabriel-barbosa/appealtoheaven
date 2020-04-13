@@ -41,29 +41,36 @@
 		/* REMOVE SINGLE PRODUCT VARIABLE THINGS THAT WE DON'T NEED */
 		$('.single_add_to_cart_button.button.alt').html('add to cart');
 
+		$(".toggle-item").click(function() {
+			$(".toggle-menu").toggle();
+		});
+
+	});
+
+	$(window).load(function() {
 		if ($(window).width() < 768) {
 			$(".horizontal-wrapper").removeClass("product-gallery");
 
 			$('.stories-slider').flipster({
-		    itemContainer: '.container-slider',
-		    itemSelector: '.story-item',
-		    start: 'center',
-		    fadeIn: 400,
-		    loop: true,
-		    autoplay: false,
-		    pauseOnHover: true,
+				itemContainer: '.container-slider',
+				itemSelector: '.story-item',
+				start: 'center',
+				fadeIn: 400,
+				loop: true,
+				autoplay: false,
+				pauseOnHover: true,
 				style: 'carousel',
 				spacing: -0.6,
 				nav: true,
 				buttons:   true,
-		    click: true,
-		    keyboard: true,
-	 			scrollwheel: false,
-		    touch: true,
-		    nav: false,
-		    buttons: false,
-		    buttonPrev: 'Previous',
-		    buttonNext: 'Next',
+				click: true,
+				keyboard: true,
+				scrollwheel: false,
+				touch: true,
+				nav: false,
+				buttons: false,
+				buttonPrev: 'Previous',
+				buttonNext: 'Next',
 				onItemSwitch: function(currentItem, previousItem){
 					var title = $(currentItem).find('.post-info').data('title');
 					var description = $(currentItem).find('.post-info').data('description');
@@ -76,25 +83,25 @@
 		}
 		else {
 			$('.stories-slider').flipster({
-		    itemContainer: '.container-slider',
-		    itemSelector: '.story-item',
-		    start: 'center',
-		    fadeIn: 400,
-		    loop: true,
-		    autoplay: false,
-		    pauseOnHover: true,
+				itemContainer: '.container-slider',
+				itemSelector: '.story-item',
+				start: 'center',
+				fadeIn: 400,
+				loop: true,
+				autoplay: false,
+				pauseOnHover: true,
 				style: 'coverflow',
 				spacing: -0.6,
 				nav: true,
 				buttons:   true,
-		    click: true,
-		    keyboard: true,
-	 			scrollwheel: false,
-		    touch: true,
-		    nav: false,
-		    buttons: false,
-		    buttonPrev: 'Previous',
-		    buttonNext: 'Next',
+				click: true,
+				keyboard: true,
+				scrollwheel: false,
+				touch: true,
+				nav: false,
+				buttons: false,
+				buttonPrev: 'Previous',
+				buttonNext: 'Next',
 				onItemSwitch: function(currentItem, previousItem){
 					var title = $(currentItem).find('.post-info').data('title');
 					var description = $(currentItem).find('.post-info').data('description');
@@ -104,23 +111,18 @@
 					$('.stories-title .description').html(description);
 				},
 			});
-
 		}
 
-		$(".toggle-item").click(function() {
-			$(".toggle-menu").toggle();
-		});
 
+		$('.stories-title .title').html($('.flipster__item--current .post-info').data('title'));
+		$('.stories-title .description').html($('.flipster__item--current .post-info').data('description'));
 	});
 
 	$(function () {
 
 		'use strict';
 
-		// DOM ready, take it away
-
-		$('.stories-title .title').html($('.flipster__item--current .post-info').data('title'));
-		$('.stories-title .description').html($('.flipster__item--current .post-info').data('description'));
+		// DOM ready, take it awa
 
 		/* MOVE CHECKOUT TITLE TO THE RIGHT PLACE */
 		$("#order_review_heading").detach().prependTo("#order_review");
