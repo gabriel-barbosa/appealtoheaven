@@ -803,11 +803,12 @@ body.about {
 
 .image-hotspot {
   position: relative;
+	display: inline-block;
 
   .hotspot-pin {
     cursor: pointer;
     position: absolute;
-    min-width: 100px;
+    min-width: 120px;
     font-size: 20px;
     color: $yellow;
 
@@ -816,9 +817,7 @@ body.about {
     }
 
     .product-index {
-      position: absolute;
-      top: 0;
-      left: 0;
+
 
 			@include responsive(mobile) {
     		font-size: 7vw;
@@ -827,7 +826,9 @@ body.about {
 
     .product-link {
       display: none;
-      margin: 0;
+			position: absolute;
+      top: 0;
+      left: 0;
 
 			br {
 				display: none;
@@ -838,15 +839,27 @@ body.about {
 			}
     }
 
-    &:hover {
-      .product-index {
-        display: none;
-      }
+		&:hover {
+			.product-index {
+				display: none;
+			}
 
-      .product-link {
-        display: block;
-      }
-    }
+			.product-link {
+				display: block;
+			}
+		}
+
+		@include responsive(tablet-portrait) {
+			&:hover {
+				.product-index {
+					display: block;
+				}
+
+				.product-link {
+					display: none;
+				}
+			}
+		}
   }
 }
 
@@ -957,16 +970,16 @@ body.about {
 		}
 	}
 
-	.simple-shadow {
+	.box-shadow {
 		-webkit-box-shadow: 1px 1px 6px 1px;
 		-moz-box-shadow: 1px 1px 6px 1px;
 		box-shadow: 1px 1px 6px 1px;
+	}
 
-		span {
-			-webkit-text-shadow: 1px 1px 4px;
-			-moz-text-shadow: 1px 1px 4px;
-			text-shadow: 1px 1px 4px;
-		}
+	.text-shadow span {
+		-webkit-text-shadow: 1px 1px 4px;
+		-moz-text-shadow: 1px 1px 4px;
+		text-shadow: 1px 1px 4px;
 	}
 
 	.yellow-border {
@@ -1364,10 +1377,19 @@ body.about {
 		.wac-qty-button {
 			background: none;
 			padding: 0;
+
+			a {
+				display: block;
+			}
 		}
 
 		.wac-quantity {
 			display: flex;
+			align-items: center;
+		}
+
+		.wac-btn-sub {
+			margin-top: -8px;
 		}
 	}
 

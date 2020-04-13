@@ -1,6 +1,8 @@
 (function ($, root, undefined) {
 
 	$(document).ready(function($) {
+
+		/* HORIZONTAL SLIDER ON SINGLE PRODUCT PAGE */
 		if ($(window).width() > 768) {
 			$(".horizontal-wrapper").on("mousewheel", function(e) {
 				e.preventDefault();
@@ -21,6 +23,14 @@
 					});
 					$('.horizontal-content').css('width', width + pageBuilderWidth + (elementNum*15));
 			}, 100);
+		}
+
+		if ($(window).width() < 768) {
+			/* HOTSPOT PIN - SHOW PRODUCT NAME ONCLICK */
+			$('.hotspot-pin').click(function() {
+				$(this).find('.product-link').show();
+				$(this).find('.product-index').hide();
+			});
 		}
 
 		/* SET COVER HEIGHT CORRECTLY ON MOBILE - DESCONSIDERS BROWSER NAV BARS */
@@ -44,9 +54,10 @@
 		$(".toggle-item").click(function() {
 			$(".toggle-menu").toggle();
 		});
-
 	});
 
+
+	/* SLIDER ON HOMEPAGE - MOBILE AND DESKTOP */
 	$(window).load(function() {
 		if ($(window).width() < 768) {
 			$(".horizontal-wrapper").removeClass("product-gallery");
@@ -128,9 +139,6 @@
 		$("#order_review_heading").detach().prependTo("#order_review");
 
 
-		$('#shipping_method li').each(function() {
-			$(this).children().find('.amount').prependTo($(this));
-		});
 	});
 
 })(jQuery, this);
