@@ -193,10 +193,6 @@ input[type=number] {
   padding-bottom: 50px;
 }
 
-.home .wrapper {
-  max-height: 100vh;
-}
-
 /* header */
 .header {
   position: fixed;
@@ -435,7 +431,6 @@ text-align: center;
 
 .stories-slider {
   width: 100%;
-  max-width: 1440px;
   height: auto;
 }
 
@@ -452,6 +447,13 @@ text-align: center;
       border: 1px solid $purple;
     }
   }
+
+	@include responsive(big-desktop) {
+		.story-item {
+			width: 25%;
+			height: auto;
+		}
+	}
 
 	@include responsive(tablet-portrait) {
 		.story-item {
@@ -518,6 +520,17 @@ text-align: center;
 
 		.description {
 			font-size: 6vw;
+		}
+	}
+
+	@include responsive(big-desktop) {
+		.title {
+			font-size: 3vw;
+			line-height: 1.2;
+		}
+
+		.description {
+			font-size: 2vw;
 		}
 	}
 }
