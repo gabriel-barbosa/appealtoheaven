@@ -1438,6 +1438,7 @@ body.about {
 	margin: 0;
 	text-align: center;
 	color: $purple;
+	background: none;
 }
 
 .woocommerce a.remove {
@@ -1808,6 +1809,11 @@ body.about {
 			display: flex;
     	border-top: 1px solid;
     	padding-top: 20px;
+
+			.woocommerce-variation-add-to-cart {
+				display: flex;
+				align-items: center;
+			}
 
 			@include responsive(tablet-portrait) {
 				position: fixed;
