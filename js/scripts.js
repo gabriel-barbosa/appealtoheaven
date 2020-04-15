@@ -4,13 +4,20 @@
 
 		/* HORIZONTAL SLIDER ON SINGLE PRODUCT PAGE */
 		if ($(window).width() > 768) {
-			$(".horizontal-wrapper").on("mousewheel", function(e) {
-				e.preventDefault();
-				var delta = (parseInt(e.originalEvent.deltaY))*(-1);
-				//console.log(delta)
-				var scto = $(this).scrollLeft() - delta;
-				$(this).scrollLeft(scto);
-			});
+			var checkElement = setInterval(function(){
+        if ($('.horizontal-wrapper .gallery-img').length > 0){
+
+						$(".horizontal-wrapper").on("mousewheel", function(e) {
+							e.preventDefault();
+							var delta = (parseInt(e.originalEvent.deltaY))*(-1);
+							//console.log(delta)
+							var scto = $(this).scrollLeft() - delta;
+							$(this).scrollLeft(scto);
+						});
+
+            clearInterval(checkElement);
+        }
+    	},100);
 
 			setTimeout(function(){
 				var width = 0;
