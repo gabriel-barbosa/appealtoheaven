@@ -1,19 +1,36 @@
 <?php get_header(); ?>
 
-	<main role="main">
-		<!-- section -->
-		<section>
+<section>
+	<div class="page-title">
+		<h1><?php the_title(); ?></h1>
+	</div>
 
-			<h1><?php _e( 'Archives', 'html5blank' ); ?></h1>
+	<?php if(is_archive()) { ?>
+	<div class="page-description">
+		<?php $args = array(
+	    'taxonomy'   => "product_cat",
+		);
+		$product_categories = get_terms($args); ?>
 
-			<?php get_template_part('loop'); ?>
+		<h2>
+		<?php $output = ''; foreach($product_categories as $cat) {
+		    if(!empty($output))
+		        $output .= ', ';
+		    $output .= '<span class="cat"><a href="'. esc_url( get_term_link( $cat ) ) .'">'. $cat->name .'</a></span>';
+			}
+			echo $output; ?>
+		</h2>
+	</div>
+	<?php } ?>
 
-			<?php get_template_part('pagination'); ?>
+	<?php if (have_posts()):
+	$productcounter = 0;
 
-		</section>
-		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+	while (have_posts()) : the_post(); ?>
+	<article id="post-<?php the_ID();?>" <?php post_class(); ?>>
+		<?php the_content(); ?>
+	</article>
+	<?php endwhile; endif; ?>
+</section>
 
 <?php get_footer(); ?>

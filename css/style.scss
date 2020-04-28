@@ -1246,7 +1246,6 @@ body.about {
     font-size: 2.5vw;
 	}
 
-
 	/*    MOBILE    */
 	@include responsive(tablet-portrait) {
 		h1 {
@@ -1452,11 +1451,21 @@ body.about {
 	}
 }
 
+.woocommerce-breadcrumb {
+	display: none;
+}
+
+.woocommerce .product {
+	.product_title {
+		display: none;
+	}
+}
+
 /*------------------------------------*\
     WOOCOMMERCE - SHOP PAGE
 \*------------------------------------*/
 
-.shop {
+.shop, .archive {
 	.wrapper {
 		width: 100%;
 	}
@@ -1733,11 +1742,25 @@ body.about {
 			line-height: 1;
 		}
 
+		.price {
+			color: $purple !important;
+			display: flex;
+			align-items: center;
+			margin-bottom: 15px;
+		}
+
 		.amount {
 			color: $purple;
 			font-size: 3.5vw;
-			margin-bottom: 12px;
 			display: block;
+
+			&:first-of-type {
+				margin-right: 10px;
+			}
+
+			&:last-of-type {
+				margin-left: 10px;
+			}
 		}
 
 		.short-description {
@@ -1772,6 +1795,10 @@ body.about {
 				font-size: 2vw;
 			}
 
+			tbody tr:first-of-type {
+				border-bottom: 15px solid transparent;
+			}
+
 			.reset_variations {
 				visibility: hidden;
     		display: none !important;
@@ -1799,6 +1826,10 @@ body.about {
 				display: none;
 				visibility: hidden;
 			}
+		}
+
+		.quantity .qty {
+			display: none !important;
 		}
 
 		.product_meta {
@@ -1873,9 +1904,12 @@ body.about {
 			width: 50vw !important;
 			margin-top: 4vw;
 
+			.price {
+				margin-bottom: 15px;
+			}
+
 			.amount {
 				font-size: 4vw;
-				margin-bottom: 15px;
 			}
 
 			h3 {
@@ -1960,9 +1994,12 @@ body.about {
 			margin-top: 8vw;
 			font-size: 5vw;
 
+			.price {
+				margin-bottom: 20px;
+			}
+
 			.amount {
 				font-size: 13vw;
-				margin-bottom: 20px;
 			}
 
 			h3 {
@@ -2004,7 +2041,7 @@ body.about {
 					height: auto;
 
 					span {
-						font-size: 13vw;
+						font-size: 12vw;
 						padding: 0 10px !important;
 					}
 				}

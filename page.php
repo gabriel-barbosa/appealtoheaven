@@ -5,11 +5,23 @@
 		<h1><?php the_title(); ?></h1>
 	</div>
 
+	<?php if(is_archive()) { ?>
 	<div class="page-description">
-		<?php if(get_field('shop_description')): ?>
-		<h2><?php the_field('shop_description'); ?></h2>
-		<?php endif; ?>
+		<?php $args = array(
+	    'taxonomy'   => "product_cat",
+		);
+		$product_categories = get_terms($args); ?>
+
+		<h2>
+		<?php $output = ''; foreach($product_categories as $cat) {
+		    if(!empty($output))
+		        $output .= ', ';
+		    $output .= '<span class="cat"><a href="'. esc_url( get_term_link( $cat ) ) .'">'. $cat->name .'</a></span>';
+			}
+			echo $output; ?>
+		</h2>
 	</div>
+	<?php } ?>
 
 	<?php if (have_posts()):
 	$productcounter = 0;

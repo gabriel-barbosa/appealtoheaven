@@ -477,6 +477,7 @@ function scanwp_font_size( $initArray ){
   }
 add_filter( 'tiny_mce_before_init', 'scanwp_font_size' );
 
+add_theme_support( 'woocommerce' ); 
 
 
 ?>
